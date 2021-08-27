@@ -4,8 +4,7 @@ kind: ReplicationGroup
 spec:
   cacheNodeType: cache.t3.small
   engine: redis
-  numNodeGroups: 1
-  replicasPerNodeGroup: 1
+  numCacheNodes: 2
   replicationGroupDescription: cluster-mode disabled RG
   replicationGroupID: rg-cmd
 status:

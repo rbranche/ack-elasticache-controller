@@ -168,6 +168,18 @@ type ReplicationGroupSpec struct {
 	//
 	// The Amazon SNS topic owner must be the same as the cluster owner.
 	NotificationTopicARN *string `json:"notificationTopicARN,omitempty"`
+	// The number of clusters this replication group initially has.
+	//
+	// This parameter is not used if there is more than one node group (shard).
+	// You should use ReplicasPerNodeGroup instead.
+	//
+	// If AutomaticFailoverEnabled is true, the value of this parameter must be
+	// at least 2. If AutomaticFailoverEnabled is false you can omit this parameter
+	// (it will default to 1), or you can explicitly set it to a value between 2
+	// and 6.
+	//
+	// The maximum permitted value for NumCacheClusters is 6 (1 primary plus 5 replicas).
+	NumCacheClusters *int64 `json:"numCacheClusters,omitempty"`
 	// An optional parameter that specifies the number of node groups (shards) for
 	// this Redis (cluster mode enabled) replication group. For Redis (cluster mode
 	// disabled) either omit this parameter or set it to 1.
